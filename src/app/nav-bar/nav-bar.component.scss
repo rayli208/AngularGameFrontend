@@ -1,0 +1,18 @@
+.spacer {
+    flex: 1 1 auto;
+}
+  
+.router-link{
+    font-size: 16px;
+    color: #ccc;
+    cursor: pointer;
+    margin-right: 20px;
+}  
+
+.router-link:focus{
+    outline: none;
+}
+.router-link-active{
+    color: #f44336;
+    font-weight: 700;
+}

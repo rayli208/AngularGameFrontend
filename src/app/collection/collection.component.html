@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-12">
+        <h1 class="m-3">Game Collection:</h1>
+    </div>
+    <div class="col-12 col-md-4" *ngFor="let game of userCollection;">
+        <mat-card class="collection-card">
+            <div class="collection-card-header">{{game.title}}</div>
+            <div class="collection-card-sub-header">{{game.platform}}</div>
+            <div class="collection-card-content">
+                <img mat-card-image *ngIf="game.imageUrl" class="collection-card-image" src="{{game.imageUrl}}"
+                    alt="Game Image">
+                <i *ngIf="!game.imageUrl">There is no image for this game :(</i>
+            </div>
+            <div class="collection-card-footer">
+                <button [routerLink]="['/game-details/', game.gameId]" mat-icon-button mat-raised-button
+                color="accent">
+                <mat-icon>pageview</mat-icon>
+            </button>
+                <button (click)="deleteGame(game.gameId)" mat-icon-button mat-raised-button color="warn">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+        </mat-card>
+    </div>
+</div>

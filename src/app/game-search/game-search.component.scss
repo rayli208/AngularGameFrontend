@@ -1,0 +1,31 @@
+.game-search-card{
+    margin: 15px;
+    min-height: 150px;
+}
+
+.game-search-card-header, .game-search-card-title{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.game-search-card-platform{
+    margin-top: 15px;
+    color: #999;
+    font-style: italic;
+}
+
+.game-search-card-footer{
+    text-align: center;
+    margin-top: 15px;
+}
+
+.game-search-card-field{
+    mat-form-field{
+        width: 100%;
+    }
+}
+
+.game-search-card-footer{
+    display: flex;
+    justify-content: space-between;
+}

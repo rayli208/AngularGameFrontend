@@ -1,0 +1,42 @@
+<div class="col-12">
+    <h1 class="m-3">Game Details:</h1>
+</div>
+<div *ngIf="game" class="col-12">
+    <mat-card class="game-card m-3">
+        <h1 class="game-card-header">{{game.title}}</h1>
+        <div class="row">
+            <div class="col-12 col-md-7">
+                <div class="game-card-content">
+                    <div class="mb-2">
+                        <span *ngIf="game.releaseDate">Release date: {{game.releaseDate | date: 'dd/MM/yyyy'}}</span>
+                        <span *ngIf="game.platform"> for {{game.platform.name}}</span>
+                    </div>
+                    <div *ngIf="game.genres" class="mb-2">
+                        <div>Game Genre: </div>
+                        <ul>
+                            <li *ngFor="let genre of game.genres">
+                                {{genre}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div *ngIf="game.publishers.length > 0" class="mb-2">
+                        Game publisher: {{game.publishers}}
+                    </div>
+                    <div *ngIf="!game.imageUrl">There is no image for this game :(</div>
+                </div>
+            </div>
+            <div *ngIf="game.imageUrl" class="col-12 col-md-5 game-card-image-container"> <img mat-card-image class="game-card-image"
+                    placeholder="image of {{game.title}}" src="{{game.imageUrl}}" alt="Game Image">
+            </div>
+        </div>
+        <div *ngIf="game.overview" class="game-card-overview">
+            <h3 class="mb-2">Description: </h3>
+            <div>{{game.overview}}</div>
+        </div>
+        <div class="game-card-footer">
+            <button (click)="addGameToCollection(game.gameId)" mat-icon-button mat-raised-button color="primary" [disabled] = "isInCollection">
+                <mat-icon>bookmark_add</mat-icon>
+            </button>
+        </div>
+    </mat-card>
+</div>

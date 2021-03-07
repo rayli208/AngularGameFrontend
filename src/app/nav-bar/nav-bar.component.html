@@ -1,0 +1,9 @@
+<mat-toolbar *ngIf="isAuthenticated()" color="primary">
+    <mat-toolbar-row>
+      <span>Game Store - {{getUser()}}</span>
+      <span class="spacer"></span>
+      <span [routerLink]="['/collection']" routerLinkActive="router-link-active" class="router-link">Collection</span>
+      <span [routerLink]="['/game-search']" routerLinkActive="router-link-active" class="router-link">Search Games</span>
+      <button (click)="logout()" mat-raised-button color="warn">Log Out</button>
+    </mat-toolbar-row>
+  </mat-toolbar>

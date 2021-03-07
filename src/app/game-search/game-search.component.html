@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-12">
+        <h1 class="m-3">Game Search:</h1>
+    </div>
+    <div class="col-12 col-md-4">
+        <mat-card class="game-search-card">
+            <form [formGroup]="form" (ngSubmit)="searchGame(form)">
+                <div class="game-search-card-header">
+                    Find your game:
+                </div>
+                <div class="game-search-card-field">
+                    <mat-form-field>
+                        <mat-select formControlName="platformId">
+                            <mat-option *ngFor="let platform of platforms" [value]="platform.platformId">
+                                {{platform.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="game-search-card-field">
+                    <mat-form-field class="example-full-width">
+                        <input formControlName="gameName" matInput placeholder="Game Name">
+                    </mat-form-field>
+                </div>
+
+                <div class="game-search-card-footer">
+                    <button mat-raised-button color="primary" type="submit">Search</button>
+                </div>
+            </form>
+        </mat-card>
+    </div>
+    <div class="col-12 col-md-8">
+        <div *ngIf="games">
+            <div class="row">
+                <div class="col-12 col-md-4" *ngFor="let game of games;">
+                    <mat-card class="game-search-card">
+                        <div class="game-search-card-title">{{game.title}}</div>
+                        <div class="game-search-card-platform">{{game.platform}}</div>
+                        <div class="game-search-card-footer">
+                            <button [routerLink]="['/game-details/', game.gameId]" mat-icon-button mat-raised-button
+                                color="accent">
+                                <mat-icon>pageview</mat-icon>
+                            </button>
+                            <button (click)="addGameToCollection(game.gameId)" mat-icon-button mat-raised-button
+                                color="primary" [disabled] = "alreadyInCollection(game.gameId)">
+                                <mat-icon>bookmark_add</mat-icon>
+                            </button>
+                        </div>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

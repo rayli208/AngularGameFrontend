@@ -1,0 +1,43 @@
+.collection-card {
+    height:  300px;
+    max-width: 400px;
+    text-align: center;
+    margin: 15px auto;
+    position: relative;
+}
+
+.collection-card-header{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.collection-card-sub-header{
+    font-size: 16px;
+    font-weight: 100;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.collection-card-content{
+    margin-top: 25px;
+}
+
+.mat-card-header-text{
+    width: 100%;
+}
+  
+.collection-card-image{
+    max-height: 150px;
+    max-width: 150px;
+    text-align: center;
+}
+
+.collection-card-footer{
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    right: 0;
+    padding: 0px 15px;
+}
